@@ -1,3 +1,4 @@
+# https://atcoder.jp/contests/abc321/tasks/abc321_d
 from bisect import *
 from itertools import *
 I = lambda : map(int, input().split())
