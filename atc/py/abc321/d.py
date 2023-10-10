@@ -13,9 +13,9 @@ def solve():
   for x in a:
     i = bisect_right(b, p - x) # [0, i) 取x + y, [i, n) 取 p
     ans += x * i + (preSum[i-1] if i else 0) + (m - i) * p
-  print(ans)
 
-solve()
+if __name__ == "__main__":
+  solve()
 
 """
 输入
