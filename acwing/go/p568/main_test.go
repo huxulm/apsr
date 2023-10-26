@@ -4,6 +4,7 @@ import (
 	"testing"
 	"strings"
 	"bytes"
+	"fmt"
 )
 func TestXxx(t *testing.T) {
 	cases := []struct {
@@ -21,13 +22,19 @@ func TestXxx(t *testing.T) {
 			-3
 			-3`,
 		},
+		{
+			`1
+			1 1000000000`,
+			`500000000`,
+		},
 	}
-	for _, cas := range cases {
-		r := strings.NewReader(cas.raw)
-		w := &bytes.Buffer{}
-		solve(r, w)
-		if w.String() == cas.expect {
-			t.Log("ok")
-		}
+	for i, cas := range cases {
+		t.Run(fmt.Sprintf("#test-%d", i + 1), func(t *testing.T) {
+			r := strings.NewReader(cas.raw)
+			w := &bytes.Buffer{}
+			_ = w
+			solve(r, w)
+			t.Log(w.String())			
+		})
 	}
 }

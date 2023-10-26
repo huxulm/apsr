@@ -17,6 +17,7 @@ func solve(_r io.Reader, _w io.Writer) {
 	for i := 0; i < t; i++ {
 		fmt.Fscan(in, &l, &r)
 		k := (r - l + 1) >> 1
+		ans = 0
 		if l & 1 == 1 {
 			ans = k
 		} else {
@@ -24,10 +25,12 @@ func solve(_r io.Reader, _w io.Writer) {
 		}
 		if (r - l + 1) & 1 == 1 {
 			if r & 1 == 1 {
-				ans -= r 
+				ans -= r
+			} else {
+				ans += r
 			}
 		}
-		fmt.Fprint(out, ans)
+		fmt.Fprintln(out, ans)
 	}
 }
 
